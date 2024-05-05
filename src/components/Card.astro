@@ -1,21 +1,23 @@
 ---
 interface Props {
-	title: string;
-	body: string;
-	href: string;
+	name: string;
+	field: string;
+	biography: string;
 }
 
-const { href, title, body } = Astro.props;
+const { name, field, biography } = Astro.props;
 ---
 
 <li class="link-card">
-	<a href={href}>
+	<a href="#">
 		<h2>
-			{title}
-			<span>&rarr;</span>
+			{name}
 		</h2>
+		<p class="field">
+			{field}
+		</p>
 		<p>
-			{body}
+			{biography}
 		</p>
 	</a>
 </li>
@@ -57,5 +59,9 @@ const { href, title, body } = Astro.props;
 	}
 	.link-card:is(:hover, :focus-within) h2 {
 		color: rgb(var(--accent-light));
+	}
+	.field{
+		font-size: 0.9rem;
+		color: rgb(96, 21, 182);
 	}
 </style>
